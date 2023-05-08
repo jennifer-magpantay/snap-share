@@ -27,6 +27,23 @@ body {
   }
 }
 
+.container-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: gap(1);
+}
+
+.container--botton-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: gap(1);
+  margin-top: auto;
+  background-color: $gray-100;
+  border-top: 01px solid $gray-200;
+}
+
 .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
