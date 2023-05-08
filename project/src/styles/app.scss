@@ -1,0 +1,25 @@
+// SETTINGS
+@use "./reset";
+@use "./variables";
+@use "./fonts";
+
+// HELPERS
+@use "./responsive";
+@use "./functions";
+@use "./mixins";
+
+// STRUCTURE
+@use "./structure";
+
+// BASE
+@use "./headings";
+
+// COMPONENTS
+@use "./components/header";
+@use "./components/title";
+@use "./components/description";
+@use "./components/footer";
+@use "./components/uploadComponent";
+@use "./components/filesList";
+@use "./components/fileItem";
+@use "./components/card";
