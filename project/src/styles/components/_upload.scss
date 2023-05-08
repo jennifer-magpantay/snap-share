@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use "../responsive" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+
+.container--upload {
+  position: relative;
+  padding: gap(1.25) gap(2);
+  background-color: $primary-color-400;
+  border-radius: 50px;
+  font-weight: $black;
+  outline: 0;
+
+  .input--upload {
+    all: unset;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  .button--upload {
+    background-color: transparent;
+    border: 0;
+    color: $white;
+    font-size: inherit;
+    outline: 0;
+  }
+}

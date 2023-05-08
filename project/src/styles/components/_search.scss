@@ -1,0 +1,69 @@
+@use "../variables" as *;
+@use "../responsive" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+
+.form--search {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: gap(1);
+  position: absolute;
+  right: gap(2);
+
+  @include for-tablet-portrait-up {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  @include for-tablet-landscape-up {
+    width: 100%;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.input--search,
+.button--search {
+  display: inline-block;
+}
+
+.input--search {
+  width: 100%;
+  padding: gap(1.25) gap(2);
+  border: 01px solid $gray-300;
+  border-radius: 50px;
+  font-size: inherit;
+  outline-color: transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    border-color: $gray-600;
+    outline-color: $gray-600;
+  }
+}
+
+.button--search {
+  width: 44px;
+  aspect-ratio: 1 / 1;
+  //padding: gap(1);
+  background-color: $primary-color-400;
+  border-color: transparent;
+  border-radius: 50px;
+  color: $white;
+  font-weight: $black;
+  line-height: 0;
+  outline: 0;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color-600;
+    cursor: pointer;
+  }
+
+  svg {
+    width: 100%;
+  }
+}
