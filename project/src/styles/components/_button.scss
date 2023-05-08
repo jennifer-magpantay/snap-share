@@ -1,0 +1,11 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+@use "../responsive" as *;
+
+button {
+  background-color: $primary-color-400;
+  border-radius: 50px;
+  font-weight: $black;
+  outline: 0;
+}

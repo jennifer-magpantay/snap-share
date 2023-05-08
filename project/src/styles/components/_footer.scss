@@ -1,6 +1,7 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 @use "../functions" as *;
+@use "../responsive" as *;
 
 footer {
   width: 100%;
@@ -9,11 +10,15 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: auto;
+
   padding: gap(2) gap(6);
   background-color: $gray-800;
   color: $white;
   text-align: center;
+
+  @include for-tablet-landscape-up {
+    margin-top: auto;
+  }
 
   a {
     font-size: inherit;

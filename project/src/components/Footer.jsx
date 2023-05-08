@@ -1,10 +1,28 @@
-import { Confetti } from "@phosphor-icons/react";
+import PropTypes from "prop-types";
+import { Confetti, Camera } from "@phosphor-icons/react";
 
-export const Footer = () => {
+import { Button } from "./Button";
+
+export const Footer = ({ isMobile }) => {
   return (
-    <footer>
-      <small>Developed with fun by Jennifer Magpantay </small>
-      <Confetti size={18} color="#fafafa" />
-    </footer>
+    <>
+      {isMobile && (
+        <div className="container--botton-page">
+          <Button
+            hasIcon={true}
+            text="Take a picture"
+            icon={<Camera size={32} />}
+          />
+        </div>
+      )}
+      <footer>
+        <small>Developed with fun by Jennifer Magpantay </small>
+        <Confetti size={18} color="#fafafa" />
+      </footer>
+    </>
   );
+};
+
+Footer.propTypes = {
+  isMobile: PropTypes.bool,
 };
