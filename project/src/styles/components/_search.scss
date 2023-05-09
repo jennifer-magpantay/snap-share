@@ -18,10 +18,14 @@
   }
 
   @include for-tablet-landscape-up {
-    width: 100%;
-    max-width: 500px;
+    width: calc(100% - 180px);
+    max-width: 400px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  @include for-small-desktop-up {
+    max-width: 500px;
   }
 }
 

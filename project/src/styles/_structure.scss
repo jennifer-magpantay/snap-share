@@ -28,10 +28,14 @@ body {
 }
 
 .container-flex {
+  width: 100%;
+  max-width: calc(100% / 12 * 10);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: gap(1);
+  padding: gap(2);
+  margin: 0 auto;
 }
 
 .container--botton-page {

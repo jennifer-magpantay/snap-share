@@ -28,7 +28,6 @@ export const App = () => {
     <>
       <Header isMobile={isMobile} />
       <div className="container-flex">
-        <h1>Hello Stranger</h1>
         <Aside />
         <Main />
       </div>
