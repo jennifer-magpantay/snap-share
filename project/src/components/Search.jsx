@@ -13,6 +13,8 @@ export const Search = () => {
         aria-label="Search through application"
       />
       <Button
+        customClass="cta"
+        id="search-button"
         type="submit"
         hasIcon={true}
         text="Search in the application"

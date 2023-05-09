@@ -9,6 +9,8 @@ export const Footer = ({ isMobile }) => {
       {isMobile && (
         <div className="container--botton-page">
           <Button
+            customClass="cta"
+            id="open-camera-button"
             type="button"
             hasIcon={true}
             text="Take a picture"
