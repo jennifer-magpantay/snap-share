@@ -12,4 +12,21 @@ main {
     width: 75%;
     height: 100%;
   }
+
+  .main--header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //gap: gap(1);
+    margin: gap(1) 0;
+
+    &-title {
+    }
+    .container--button-view {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 }
