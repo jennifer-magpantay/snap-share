@@ -4,13 +4,45 @@
 @use "../responsive" as *;
 
 button {
+  background-color: transparent;
+  border: 0;
+  font-weight: $black;
+  line-height: 0;
+  outline: 0;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+}
+
+.cta {
   width: $icon-large;
   aspect-ratio: 1 /1;
   margin: gap(1);
   background-color: $primary-color-400;
-  border: 0;
   border-radius: 50px;
-  font-weight: $black;
+}
+
+.grid {
+  width: toRem(44);
+  aspect-ratio: 1 /1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: gap(0.5);
   line-height: 0;
-  outline: 0;
+
+  @include for-tablet-landscape-up {
+    width: toRem(40);
+  }
+
+  svg {
+    width: auto;
+    height: 100%;
+  }
 }
