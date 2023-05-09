@@ -4,8 +4,13 @@
 @use "../responsive" as *;
 
 button {
+  width: $icon-large;
+  aspect-ratio: 1 /1;
+  margin: gap(1);
   background-color: $primary-color-400;
+  border: 0;
   border-radius: 50px;
   font-weight: $black;
+  line-height: 0;
   outline: 0;
 }

@@ -1,20 +1,22 @@
 import PropTypes from "prop-types";
-export const Button = ({ hasIcon, text, icon }) => {
+export const Button = ({ type, customClass, hasIcon, text, icon }) => {
   return (
-    <button type="button">
+    <button type={type} className={customClass && customClass}>
       {hasIcon ? (
         <>
           <span className="sr-only">{text}</span>
           {icon}
         </>
       ) : (
-        { text }
+        <span>{text}</span>
       )}
     </button>
   );
 };
 
-Button.prototype = {
+Button.propTypes = {
+  type: PropTypes.oneOf(["button", "submit"]),
+  customClass: PropTypes.string,
   hasIcon: PropTypes.bool,
   text: PropTypes.string,
   icon: PropTypes.node,
