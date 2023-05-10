@@ -1,0 +1,11 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+@use "../responsive" as *;
+
+.modal {
+  position: absolute;
+  inset: 0;
+  background-color: $gray-800;
+  opacity: 0.5;
+}
