@@ -9,47 +9,48 @@ import GridTwo from "./icons/GridTwo";
 import GridFour from "./icons/GridFour";
 import GridOne from "./icons/GridOne";
 
-const data = [
-  {
-    id: "1",
-    src: "/",
-    title: "Lorem ipsum",
-    caption: "Some caption for the picture",
-    lastModified: "2018-07-07",
-  },
-  {
-    id: "2",
-    src: "/",
-    title: "Lorem ipsum",
-    caption: "Some caption for the picture",
-    lastModified: "2018-07-07",
-  },
-  {
-    id: "3",
-    src: "/",
-    title: "Lorem ipsum",
-    caption: "Some caption for the picture",
-    lastModified: "2018-07-07",
-  },
-  {
-    id: "4",
-    src: "/",
-    title: "Lorem ipsum",
-    caption: "Some caption for the picture",
-    lastModified: "2018-07-07",
-  },
+// const data = [
+//   {
+//     id: "1",
+//     src: "/",
+//     title: "Lorem ipsum",
+//     caption: "Some caption for the picture",
+//     lastModified: "2018-07-07",
+//   },
+//   {
+//     id: "2",
+//     src: "/",
+//     title: "Lorem ipsum",
+//     caption: "Some caption for the picture",
+//     lastModified: "2018-07-07",
+//   },
+//   {
+//     id: "3",
+//     src: "/",
+//     title: "Lorem ipsum",
+//     caption: "Some caption for the picture",
+//     lastModified: "2018-07-07",
+//   },
+//   {
+//     id: "4",
+//     src: "/",
+//     title: "Lorem ipsum",
+//     caption: "Some caption for the picture",
+//     lastModified: "2018-07-07",
+//   },
 
-  {
-    id: "5",
-    src: "/",
-    title: "Lorem ipsum",
-    caption: "Some caption for the picture",
-    lastModified: "2018-07-07",
-  },
-];
+//   {
+//     id: "5",
+//     src: "/",
+//     title: "Lorem ipsum",
+//     caption: "Some caption for the picture",
+//     lastModified: "2018-07-07",
+//   },
+// ];
 
 export const Main = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -62,6 +63,16 @@ export const Main = () => {
       });
     };
   });
+
+  useEffect(() => {
+    const getDataList = async () => {
+      const response = await fetch("http://localhost:8000/snaps");
+      const dt = await response.json();
+      setData(dt);
+    };
+
+    getDataList();
+  }, []);
 
   function handleGridView(event) {
     const gridView = event.currentTarget.dataset.view;
@@ -77,9 +88,7 @@ export const Main = () => {
     <main>
       <div className="main--header">
         <h2 className="main--header-title">
-          {data.length === 0
-            ? "No snaps registered yet"
-            : "Your snaps colletion"}
+          {!data ? "No snaps registered yet" : "Your snaps colletion"}
         </h2>
 
         {windowWidth > 600 && (
@@ -95,7 +104,7 @@ export const Main = () => {
               text="Display one picture at time"
               icon={<GridOne />}
               data-view="1"
-              disabled={data.length === 0}
+              disabled={data ? false : true}
               onClick={(event) => {
                 handleGridView(event);
               }}
@@ -109,7 +118,7 @@ export const Main = () => {
               text="Display two columns of pictures"
               icon={<GridTwo />}
               data-view="2"
-              disabled={data.length === 0}
+              disabled={data ? false : true}
               onClick={(event) => {
                 handleGridView(event);
               }}
@@ -124,7 +133,7 @@ export const Main = () => {
                 text="Display four columns of pictures"
                 icon={<GridFour />}
                 data-view="4"
-                disabled={data.length === 0}
+                disabled={data ? false : true}
                 onClick={(event) => {
                   handleGridView(event);
                 }}
@@ -134,7 +143,7 @@ export const Main = () => {
         )}
       </div>
       <div className="container--cards-list" id="cards-container">
-        {data.length === 0 ? (
+        {!data ? (
           <p>No moments registered yet</p>
         ) : (
           <CardList data={data} width={calculateCardWidth(windowWidth)} />
